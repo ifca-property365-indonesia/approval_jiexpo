@@ -55,7 +55,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'https://ifca.agungintiland.com/approval_blp/api'),
+    'url' => env('APP_URL', 'https://ifca.agungintiland.com/approval_jiexpo/api'),
 
     'asset_url' => env('ASSET_URL'),
 

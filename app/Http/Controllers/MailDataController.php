@@ -40,7 +40,7 @@ class MailDataController extends Controller
             'module'    => $data["type_module"],
         ];
 
-        $exists = DB::connection('BLP')
+        $exists = DB::connection('jiexpo')
             ->table('mgr.cb_cash_request_appr')
             ->where($where)
             ->whereIn('status', ["A", "R", "C"])
@@ -59,7 +59,7 @@ class MailDataController extends Controller
         // Query kedua
         $where2 = array_merge($where, ['status' => 'P']);
 
-        $exists2 = DB::connection('BLP')
+        $exists2 = DB::connection('jiexpo')
         ->table('mgr.cb_cash_request_appr')
         ->where($where2)
         ->exists();

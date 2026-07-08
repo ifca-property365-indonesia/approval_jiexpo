@@ -118,10 +118,7 @@ class PoRequestController extends Controller
 
                 if (!file_exists($cacheFilePath)) {
                     // Send email only if it has not been sent before
-                    Mail::to($emailAddress)->bcc([
-                            'noreply@agungintiland.com'
-                        ])
-                        ->send(new SendPoRMail($encryptedData, $dataArray, 'IFCA SOFTWARE - '.$entity_name));
+                    Mail::to($emailAddress)->send(new SendPoRMail($encryptedData, $dataArray, 'IFCA SOFTWARE - '.$entity_name));
 
                     // Mark email as sent
                     file_put_contents($cacheFilePath, 'sent');
@@ -170,7 +167,7 @@ class PoRequestController extends Controller
             $descstatus = "Cancelled";
             $imagestatus = "reject.png";
         }
-        $pdo = DB::connection('BLP')->getPdo();
+        $pdo = DB::connection('jiexpo')->getPdo();
         $sth = $pdo->prepare("SET NOCOUNT ON; EXEC mgr.x_send_mail_approval_po_request ?, ?, ?, ?, ?, ?, ?, ?, ?;");
         $sth->bindParam(1, $data["entity_cd"]);
         $sth->bindParam(2, $data["project_no"]);

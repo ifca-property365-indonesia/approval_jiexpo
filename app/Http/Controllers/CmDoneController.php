@@ -110,10 +110,7 @@ class CmDoneController extends Controller
 
                 if (!file_exists($cacheFilePath)) {
                     // Send email
-                    Mail::to($email)->bcc([
-                            'noreply@agungintiland.com'
-                        ])
-                        ->send(new SendCmDoneMail($encryptedData, $dataArray, 'IFCA SOFTWARE - '.$entity_name));
+                    Mail::to($email)->send(new SendCmDoneMail($encryptedData, $dataArray, 'IFCA SOFTWARE - '.$entity_name));
 
                     // Mark email as sent
                     file_put_contents($cacheFilePath, 'sent');
@@ -151,7 +148,7 @@ class CmDoneController extends Controller
             'module'        => $data["type_module"],
         ];
 
-        $exists = DB::connection('BLP')
+        $exists = DB::connection('jiexpo')
         ->table('mgr.cb_cash_request_appr')
         ->where($where)
         ->whereIn('status', ["A", "R", "C"])
@@ -170,7 +167,7 @@ class CmDoneController extends Controller
         $where2 = array_merge($where, ['status' => 'P']);
         
 
-        $exists2 = DB::connection('BLP')
+        $exists2 = DB::connection('jiexpo')
             ->table('mgr.cb_cash_request_appr')
             ->where($where2)
             ->exists();
@@ -239,7 +236,7 @@ class CmDoneController extends Controller
             $descstatus = "Cancelled";
             $imagestatus = "reject.png";
         }
-        $pdo = DB::connection('BLP')->getPdo();
+        $pdo = DB::connection('jiexpo')->getPdo();
         $sth = $pdo->prepare("SET NOCOUNT ON; EXEC mgr.xrl_send_mail_approval_cm_contractdone ?, ?, ?, ?, ?, ?, ?, ?, ?, ?;");
         $sth->bindParam(1, $data["entity_cd"]);
         $sth->bindParam(2, $data["project_no"]);

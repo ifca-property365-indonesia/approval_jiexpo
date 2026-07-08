@@ -28,7 +28,7 @@ class SelController extends Controller
             'module'        => 'PO',
         );
 
-        $query = DB::connection('BLP')
+        $query = DB::connection('jiexpo')
         ->table('mgr.cb_cash_request_appr')
         ->where($where)
         ->get();
@@ -42,7 +42,7 @@ class SelController extends Controller
             'module'        => 'PO',
         );
 
-        $query2 = DB::connection('BLP')
+        $query2 = DB::connection('jiexpo')
         ->table('mgr.cb_cash_request_appr')
         ->where($where2)
         ->get();

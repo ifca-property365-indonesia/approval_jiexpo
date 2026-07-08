@@ -11,7 +11,7 @@ class DatabaseConnectionController extends Controller
     {
         try {
             // Test the custom database connection
-            DB::connection('BLP')->getPdo();
+            DB::connection('jiexpo')->getPdo();
 
             // If successful
             return response()->json(['status' => 'success', 'message' => 'Connected to Matahari database'], 200);

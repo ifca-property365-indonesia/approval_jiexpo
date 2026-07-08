@@ -47,7 +47,7 @@ class MailController extends Controller
             'module'        => $data["type_module"],
         );
 
-        $query = DB::connection('BLP')
+        $query = DB::connection('jiexpo')
         ->table('mgr.cb_cash_request_appr')
         ->where($where)
         ->whereIn('status', ["A", "R", "C"])
@@ -77,7 +77,7 @@ class MailController extends Controller
                 'module'        => $data["type_module"],
             );
     
-            $query2 = DB::connection('BLP')
+            $query2 = DB::connection('jiexpo')
             ->table('mgr.cb_cash_request_appr')
             ->where($where2)
             ->get();

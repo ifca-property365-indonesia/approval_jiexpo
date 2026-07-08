@@ -26,7 +26,7 @@ class AutoSendController extends Controller
 {
     public function index()
     {
-        $dataList = DB::connection('BLP')
+        $dataList = DB::connection('jiexpo')
             ->table('mgr.cb_cash_request_appr')
             ->whereNull('sent_mail_date')
             ->where('status', 'P')
@@ -120,7 +120,7 @@ class AutoSendController extends Controller
             else {
                 $downLevel = $level_no - 1;
 
-                $prevStatus = DB::connection('BLP')
+                $prevStatus = DB::connection('jiexpo')
                     ->table('mgr.cb_cash_request_appr')
                     ->where([
                         'doc_no'    => $doc_no,
@@ -157,17 +157,17 @@ class AutoSendController extends Controller
     {
         $project_no = str_replace(' ', '', $data->entity_cd) . '01';
 
-        $user_group = DB::connection('BLP')
+        $user_group = DB::connection('jiexpo')
             ->table('mgr.security_groupings')
             ->where('user_name', $data->user_id)
             ->value('group_name');
 
-        $supervisor = DB::connection('BLP')
+        $supervisor = DB::connection('jiexpo')
             ->table('mgr.security_users')
             ->where('name', $data->user_id)
             ->value('supervisor');
 
-        $pdo = DB::connection('BLP')->getPdo();
+        $pdo = DB::connection('jiexpo')->getPdo();
 
         $sql = "SET NOCOUNT ON; EXEC {$sp} ?, ?, ?, ?, ?, ?, ?, ?, ?, ?";
         $stmt = $pdo->prepare($sql);
@@ -191,7 +191,7 @@ class AutoSendController extends Controller
     // =========================
     private function execSpLM($sp, $entity_cd, $doc_no, $status, $level, $reason)
     {
-        $pdo = DB::connection('BLP')->getPdo();
+        $pdo = DB::connection('jiexpo')->getPdo();
 
         $sql = "SET NOCOUNT ON; EXEC {$sp} ?, ?, ?, ?, ?";
         $stmt = $pdo->prepare($sql);
@@ -217,17 +217,17 @@ class AutoSendController extends Controller
             ? trim($data->ref_no)
             : '';
 
-        $user_group = DB::connection('BLP')
+        $user_group = DB::connection('jiexpo')
             ->table('mgr.security_groupings')
             ->where('user_name', $data->user_id)
             ->value('group_name');
 
-        $supervisor = DB::connection('BLP')
+        $supervisor = DB::connection('jiexpo')
             ->table('mgr.security_users')
             ->where('name', $data->user_id)
             ->value('supervisor');
 
-        $pdo = DB::connection('BLP')->getPdo();
+        $pdo = DB::connection('jiexpo')->getPdo();
 
         $sql = "SET NOCOUNT ON; EXEC {$sp} ?, ?, ?, ?, ?, ?, ?, ?, ?, ?";
         $stmt = $pdo->prepare($sql);

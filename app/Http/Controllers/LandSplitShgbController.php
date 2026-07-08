@@ -225,7 +225,7 @@ class LandSplitShgbController extends Controller
             'module'        => $data["type_module"],
         );
 
-        $query = DB::connection('BLP')
+        $query = DB::connection('jiexpo')
         ->table('mgr.cb_cash_request_appr')
         ->where($where)
         ->whereIn('status', ["A", "R", "C"])
@@ -257,7 +257,7 @@ class LandSplitShgbController extends Controller
                 'module'        => $data["type_module"],
             );
     
-            $query2 = DB::connection('BLP')
+            $query2 = DB::connection('jiexpo')
             ->table('mgr.cb_cash_request_appr')
             ->where($where2)
             ->get();
@@ -343,7 +343,7 @@ class LandSplitShgbController extends Controller
             $descstatus = "Cancelled";
             $imagestatus = "reject.png";
         }
-        $pdo = DB::connection('BLP')->getPdo();
+        $pdo = DB::connection('jiexpo')->getPdo();
         $sql = "EXEC mgr.xrl_send_mail_approval_land_split_shgb 
                 :entity_cd, :doc_no, :status, :level_no, :reason";
 

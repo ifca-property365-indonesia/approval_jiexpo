@@ -11,10 +11,10 @@ class ConnectController extends Controller
     public function index(Request $request)
     {
         try {
-            // Koneksi pakai koneksi 'BLP'
-            DB::connection('BLP')->getPdo();
+            // Koneksi pakai koneksi 'jiexpo'
+            DB::connection('jiexpo')->getPdo();
 
-            $dbName = DB::connection('BLP')->getDatabaseName();
+            $dbName = DB::connection('jiexpo')->getDatabaseName();
             return "✅ Berhasil konek ke database: " . $dbName;
         } catch (\Exception $e) {
             return "❌ Gagal konek ke database. Error: " . $e->getMessage();

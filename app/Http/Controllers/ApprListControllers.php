@@ -19,7 +19,7 @@ class ApprListControllers extends Controller
     public function getData()
     {
         // 1. Subquery utama yang berisi ROW_NUMBER()
-        $sub = DB::connection('BLP')
+        $sub = DB::connection('jiexpo')
             ->table('mgr.cb_cash_request_appr')
             ->select(
                 '*',
@@ -36,7 +36,7 @@ class ApprListControllers extends Controller
 
 
         // 2. Bungkus subquery agar bisa memakai WHERE rn = 1
-        $result = DB::connection('BLP')
+        $result = DB::connection('jiexpo')
             ->table(DB::raw("({$sub->toSql()}) AS cte"))
             ->mergeBindings($sub)
             ->where('rn', 1)
@@ -56,7 +56,7 @@ class ApprListControllers extends Controller
 
         Log::channel('resend')->info("Received Data: ", compact('entity_cd', 'doc_no', 'user_id'));
 
-        $db = DB::connection('BLP');
+        $db = DB::connection('jiexpo');
 
         // === Get Required Data ===
         $query = $db->table('mgr.cb_cash_request_appr')

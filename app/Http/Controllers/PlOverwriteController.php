@@ -175,7 +175,7 @@ class PlOverwriteController extends Controller
             'module'        => $data["type_module"],
         );
 
-        $query = DB::connection('BLP')
+        $query = DB::connection('jiexpo')
         ->table('mgr.cb_cash_request_appr')
         ->where($where)
         ->whereIn('status', ["A", "R", "C"])
@@ -207,7 +207,7 @@ class PlOverwriteController extends Controller
                 'module'        => $data["type_module"],
             );
     
-            $query2 = DB::connection('BLP')
+            $query2 = DB::connection('jiexpo')
             ->table('mgr.cb_cash_request_appr')
             ->where($where2)
             ->get();
@@ -293,7 +293,7 @@ class PlOverwriteController extends Controller
             $descstatus = "Cancelled";
             $imagestatus = "reject.png";
         }
-        $pdo = DB::connection('BLP')->getPdo();
+        $pdo = DB::connection('jiexpo')->getPdo();
         $sth = $pdo->prepare("EXEC mgr.xrl_send_mail_approval_pl_overwrite ?, ?, ?, ?, ?, ?");
         $success = $sth->execute([
             $data["entity_cd"],

@@ -15,7 +15,7 @@ return [
     |
     */
 
-    'default' => env('DB_CONNECTION', 'BLP'),
+    'default' => env('DB_CONNECTION', 'jiexpo'),
 
     /*
     |--------------------------------------------------------------------------
@@ -63,7 +63,7 @@ return [
             ]) : [],
         ],
 
-        'BLP' => [
+        'jiexpo' => [
             'driver' => 'sqlsrv',
             'host' => env('DB_HOST2', '127.0.0.1'),
             'port' => env('DB_PORT2', '1433'),

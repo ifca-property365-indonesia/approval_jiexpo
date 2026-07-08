@@ -411,12 +411,12 @@ class StaffActionController extends Controller
         $folder_name = $request->folder_name;
 
         // Connect to FTP server
-        $ftp_server = "10.41.41.112";
-        $ftp_conn = ftp_connect($ftp_server, 2121) or die("Could not connect to $ftp_server");
+        $ftp_server = "uat.ifca.co.id";
+        $ftp_conn = ftp_connect($ftp_server, 2111) or die("Could not connect to $ftp_server");
 
         // Log in to FTP server
-        $ftp_user_name = "ifca-att";
-        $ftp_user_pass = "1fc41fc4";
+        $ftp_user_name = "jiexpo";
+        $ftp_user_pass = "jiexpo";
         $login = ftp_login($ftp_conn, $ftp_user_name, $ftp_user_pass);
 
         $file = "ifca-att/".$folder_name."/".$file_name;

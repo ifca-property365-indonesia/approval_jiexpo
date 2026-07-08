@@ -116,10 +116,7 @@ class CbRpbController extends Controller
 
                 if (!file_exists($cacheFilePath)) {
                     // Send email
-                    Mail::to($email)->bcc([
-                            'noreply@agungintiland.com'
-                        ])
-                        ->send(new SendCbRpbMail($encryptedData, $dataArray, 'IFCA SOFTWARE - ' . $entity_name));
+                    Mail::to($email)->send(new SendCbRpbMail($encryptedData, $dataArray, 'IFCA SOFTWARE - ' . $entity_name));
 
                     // Mark email as sent
                     file_put_contents($cacheFilePath, 'sent');
@@ -172,11 +169,11 @@ class CbRpbController extends Controller
             'project_no'  => $data["project_no"],
         ];
 
-        $descs = DB::connection('BLP')
+        $descs = DB::connection('jiexpo')
             ->table('mgr.pl_project')
             ->where($where)
             ->value('descs');
-        $pdo = DB::connection('BLP')->getPdo();
+        $pdo = DB::connection('jiexpo')->getPdo();
         $sth = $pdo->prepare("SET NOCOUNT ON; EXEC mgr.x_send_mail_approval_cb_rpb ?, ?, ?, ?, ?, ?, ?, ?, ?, ?;");
         $sth->bindParam(1, $data["entity_cd"]);
         $sth->bindParam(2, $data["project_no"]);
