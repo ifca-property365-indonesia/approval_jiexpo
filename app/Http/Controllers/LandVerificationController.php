@@ -62,7 +62,7 @@ class LandVerificationController extends Controller
                 'approve_seq'       => $request->approve_seq,
                 'nop_no'            => $request->nop_no,
                 'attachments'       => $attachments,
-                'entity_name'       => $request->entity_name,
+                'entity_name'       => entityName($request->entity_name),
                 'name_owner'        => $request->name_owner,
                 'own_descs'         => $request->own_descs,
                 'email_addr'        => $request->email_addr,
@@ -88,7 +88,7 @@ class LandVerificationController extends Controller
                 'level_no'      => $request->level_no,
                 'approve_seq'   => $request->approve_seq,
                 'doc_no'        => $request->doc_no,
-                'entity_name'   => $request->entity_name,
+                'entity_name'   => entityName($request->entity_name),
                 'type'          => 'V',
                 'type_module'   => 'LM',
                 'text'          => 'Land Verification',
@@ -219,7 +219,7 @@ class LandVerificationController extends Controller
                 "St" => $st,
                 "notif" => $notif,
                 "image" => $image,
-                "entity_name"   => $data["entity_name"],
+                "entity_name"   => entityName($data["entity_name"] ?? null),
             );
             return view("email.remark.after", $msg1);
         } else {
@@ -250,7 +250,7 @@ class LandVerificationController extends Controller
                     "St" => $st,
                     "notif" => $notif,
                     "image" => $image,
-                    "entity_name"   => $data["entity_name"],
+                    "entity_name"   => entityName($data["entity_name"] ?? null),
                 );
                 return view("email.remark.after", $msg1);
             } else {
@@ -279,7 +279,7 @@ class LandVerificationController extends Controller
                     "bgcolor"   => $bgcolor,
                     "valuebt"   => $valuebt,
                     "link"      => "landverification",
-                    "entity_name"   => $data["entity_name"],
+                    "entity_name"   => entityName($data["entity_name"] ?? null),
                 );
                 return view('email/remark/passcheckwithremark', $data);
             }
@@ -344,7 +344,7 @@ class LandVerificationController extends Controller
             "St" => $st,
             "notif" => $notif,
             "image" => $image,
-            'entity_name'   => $request->entity_name,
+            'entity_name'   => entityName($request->entity_name),
         );
         return view("email.remark.after", $msg1);
     }
@@ -399,7 +399,7 @@ class LandVerificationController extends Controller
             'bodyEMail'       => $bodyEMail,
             'user_name'       => $request->user_name,
             'staff_act_send'  => $request->staff_act_send,
-            'entity_name'     => $request->entity_name,
+            'entity_name'     => entityName($request->entity_name),
             'status'          => $request->status,
             'entity_cd'       => $request->entity_cd,
             'attachments'     => $attachments,

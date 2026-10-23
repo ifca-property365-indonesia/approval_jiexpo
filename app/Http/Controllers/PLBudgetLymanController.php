@@ -41,7 +41,7 @@ class PLBudgetLymanController extends Controller
 
         $dataArray = array(
             'descs'         => $request->descs,
-            'entity_name'   => $request->entity_name,
+            'entity_name'   => entityName($request->entity_name),
             'project_name'  => $request->project_name,
             'amount'        => $amount,
             'doc_no'        => $request->doc_no,
@@ -62,7 +62,7 @@ class PLBudgetLymanController extends Controller
             'entity_cd'     => $request->entity_cd,
             'project_no'    => $request->project_no,
             'email_address' => $request->email_addr,
-            'entity_name'   => $request->entity_name,
+            'entity_name'   => entityName($request->entity_name),
             'level_no'      => $request->level_no,
             'doc_no'        => $request->doc_no,
             'user_id'       => $request->user_id,
@@ -81,7 +81,7 @@ class PLBudgetLymanController extends Controller
             $doc_no = $request->doc_no;
             $status = $request->status;
             $level_no = $request->level_no;
-            $entity_name = $request->entity_name;
+            $entity_name = entityName($request->entity_name);
 
             // Check if email addresses are provided and not empty
             if (!empty($emailAddresses)) {
@@ -195,7 +195,7 @@ class PLBudgetLymanController extends Controller
             "name"          => $statusData[0],
             "bgcolor"       => $statusData[1],
             "valuebt"       => $statusData[2],
-            "entity_name"   => $data["entity_name"]
+            "entity_name"   => entityName($data["entity_name"] ?? null)
         ];
 
         return view('email/plbudget/passcheckwithremark', $dataView);
@@ -259,7 +259,7 @@ class PLBudgetLymanController extends Controller
             "St" => $st,
             "notif" => $notif,
             "image" => $image,
-            "entity_name"   => $data["entity_name"]
+            "entity_name"   => entityName($data["entity_name"] ?? null)
         );
         return view("email.after", $msg1);
     }

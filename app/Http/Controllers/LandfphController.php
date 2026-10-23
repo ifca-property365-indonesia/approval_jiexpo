@@ -69,7 +69,7 @@ class LandfphController extends Controller
                 'no_alas_hak'       => $request->no_alas_hak,
                 'name_alas_hak'       => $request->name_alas_hak,
                 'luas_alas_hak'       => $request->luas_alas_hak,
-                'entity_name'       => $request->entity_name,
+                'entity_name'       => entityName($request->entity_name),
                 'name_owner'        => $request->name_owner,
                 'attachments'       => $attachments,
                 'total_amt'         => $total_amt,
@@ -99,7 +99,7 @@ class LandfphController extends Controller
                 'usergroup'     => $request->usergroup,
                 'user_id'       => $request->user_id,
                 'supervisor'    => $request->supervisor,
-                'entity_name'   => $request->entity_name,
+                'entity_name'   => entityName($request->entity_name),
                 'type'          => 'F',
                 'type_module'   => 'LM',
                 'text'          => 'Land FPH',
@@ -230,7 +230,7 @@ class LandfphController extends Controller
                 "St" => $st,
                 "notif" => $notif,
                 "image" => $image,
-                "entity_name"   => $data["entity_name"],
+                "entity_name"   => entityName($data["entity_name"] ?? null),
             );
             return view("email.remark.after", $msg1);
         } else {
@@ -261,7 +261,7 @@ class LandfphController extends Controller
                     "St" => $st,
                     "notif" => $notif,
                     "image" => $image,
-                    "entity_name"   => $data["entity_name"],
+                    "entity_name"   => entityName($data["entity_name"] ?? null),
                 );
                 return view("email.remark.after", $msg1);
             } else {
@@ -290,7 +290,7 @@ class LandfphController extends Controller
                     "bgcolor"   => $bgcolor,
                     "valuebt"   => $valuebt,
                     "link"      => "landfph",
-                    "entity_name"   => $data["entity_name"],
+                    "entity_name"   => entityName($data["entity_name"] ?? null),
                 );
                 return view('email/remark/passcheckwithremark', $data);
             }
@@ -355,7 +355,7 @@ class LandfphController extends Controller
             "St" => $st,
             "notif" => $notif,
             "image" => $image,
-            'entity_name'   => $request->entity_name,
+            'entity_name'   => entityName($request->entity_name),
         );
         return view("email.remark.after", $msg1);
     }
@@ -410,7 +410,7 @@ class LandfphController extends Controller
             'bodyEMail'       => $bodyEMail,
             'user_name'       => $request->user_name,
             'staff_act_send'  => $request->staff_act_send,
-            'entity_name'     => $request->entity_name,
+            'entity_name'     => entityName($request->entity_name),
             'status'          => $request->status,
             'entity_cd'       => $request->entity_cd,
             'attachments'     => $attachments,

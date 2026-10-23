@@ -31,7 +31,7 @@
                             <tr>
                                 <td style="text-align: center; padding-bottom:25px">
                                     <img width = "120" src="{{ url('public/images/GOB.jpg') }}" alt="logo">
-                                        <p style="font-size: 16px; color: #026735; padding-top: 0px;">{{ $data['entity_name'] }}</p>
+                                        <p style="font-size: 16px; color: #026735; padding-top: 0px;">{{ entityName($data['entity_name'] ?? null) }}</p>
                                 </td>
                             </tr>
                         </tbody>

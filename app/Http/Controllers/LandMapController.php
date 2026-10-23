@@ -68,7 +68,7 @@ class LandMapController extends Controller
                 'land_area_final'   => $request->land_area_final,
                 'transaction_date' => \Carbon\Carbon::parse($request->transaction_date)->format('d F Y'),
                 'attachments'       => $attachments,
-                'entity_name'       => $request->entity_name,
+                'entity_name'       => entityName($request->entity_name),
                 'email_addr'        => $request->email_addr,
                 'user_name'         => $request->user_name,
                 'sender_addr'       => $request->sender_addr,
@@ -89,7 +89,7 @@ class LandMapController extends Controller
                 'level_no'      => $request->level_no,
                 'approve_seq'   => $request->approve_seq,
                 'doc_no'        => $request->doc_no,
-                'entity_name'   => $request->entity_name,
+                'entity_name'   => entityName($request->entity_name),
                 'type'          => 'B',
                 'type_module'   => 'LM',
                 'text'          => 'Land Map',
@@ -220,7 +220,7 @@ class LandMapController extends Controller
                 "St" => $st,
                 "notif" => $notif,
                 "image" => $image,
-                "entity_name"   => $data["entity_name"],
+                "entity_name"   => entityName($data["entity_name"] ?? null),
             );
             return view("email.remark.after", $msg1);
         } else {
@@ -251,7 +251,7 @@ class LandMapController extends Controller
                     "St" => $st,
                     "notif" => $notif,
                     "image" => $image,
-                    "entity_name"   => $data["entity_name"],
+                    "entity_name"   => entityName($data["entity_name"] ?? null),
                 );
                 return view("email.remark.after", $msg1);
             } else {
@@ -280,7 +280,7 @@ class LandMapController extends Controller
                     "bgcolor"   => $bgcolor,
                     "valuebt"   => $valuebt,
                     "link"      => "landmap",
-                    "entity_name"   => $data["entity_name"],
+                    "entity_name"   => entityName($data["entity_name"] ?? null),
                 );
                 return view('email/remark/passcheckwithremark', $data);
             }
@@ -345,7 +345,7 @@ class LandMapController extends Controller
             "St" => $st,
             "notif" => $notif,
             "image" => $image,
-            'entity_name'   => $request->entity_name,
+            'entity_name'   => entityName($request->entity_name),
         );
         return view("email.remark.after", $msg1);
     }

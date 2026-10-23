@@ -73,7 +73,7 @@ class LandSubmissionController extends Controller
 
         $dataArray = array(
             'entity_cd'         => $request->entity_cd,
-            'entity_name'       => $request->entity_name,
+            'entity_name'       => entityName($request->entity_name),
             'doc_no'            => $request->doc_no,
             'level_no'          => $request->level_no,
             'approved_seq'      => $request->approved_seq,
@@ -101,7 +101,7 @@ class LandSubmissionController extends Controller
             'level_no'          => $request->level_no,
             'user_id'           => $request->user_id,
             'email_addr'        => $request->email_addr,
-            'entity_name'       => $request->entity_name,
+            'entity_name'       => entityName($request->entity_name),
             'type'              => 'E',
             'type_module'       => 'LM',
             'text'              => 'Land Submission'
@@ -118,7 +118,7 @@ class LandSubmissionController extends Controller
             $entity_cd = $request->entity_cd;
             $doc_no = $request->doc_no;
             $level_no = $request->level_no;
-            $entity_name = $request->entity_name;
+            $entity_name = entityName($request->entity_name);
 
             if (!empty($emailAddress)) {
                 // Check if the email has been sent before for this document
@@ -233,7 +233,7 @@ class LandSubmissionController extends Controller
             "name"          => $statusData[0],
             "bgcolor"       => $statusData[1],
             "valuebt"       => $statusData[2],
-            "entity_name"   => $data["entity_name"]
+            "entity_name"   => entityName($data["entity_name"] ?? null)
         ];
 
         return view('email/landsubmission/passcheckwithremark', $dataView);
@@ -296,7 +296,7 @@ class LandSubmissionController extends Controller
             "St" => $st,
             "notif" => $notif,
             "image" => $image,
-            "entity_name"   => $data["entity_name"]
+            "entity_name"   => entityName($data["entity_name"] ?? null)
         );
         return view("email.after", $msg1);
     }

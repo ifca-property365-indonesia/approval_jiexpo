@@ -117,7 +117,7 @@ class LandExtensionShgbController extends Controller
                 'user_name'             => $request->user_name,
                 'sender_addr'           => $request->sender_addr,
                 'sender_name'           => $request->sender_name,
-                'entity_name'           => $request->entity_name,
+                'entity_name'           => entityName($request->entity_name),
                 'attachments'           => $attachments,
                 'descs'                 => $request->descs,
                 'approve_list'          => $approve_data,
@@ -144,7 +144,7 @@ class LandExtensionShgbController extends Controller
                 'level_no'      => $request->level_no,
                 'approve_seq'   => $request->approve_seq,
                 'doc_no'        => $request->doc_no,
-                'entity_name'   => $request->entity_name,
+                'entity_name'   => entityName($request->entity_name),
                 'type'          => 'U',
                 'type_module'   => 'LM',
                 'text'          => 'Land SHGB Extension',
@@ -275,7 +275,7 @@ class LandExtensionShgbController extends Controller
                 "St" => $st,
                 "notif" => $notif,
                 "image" => $image,
-                "entity_name"   => $data["entity_name"],
+                "entity_name"   => entityName($data["entity_name"] ?? null),
             );
             return view("email.remark.after", $msg1);
         } else {
@@ -306,7 +306,7 @@ class LandExtensionShgbController extends Controller
                     "St" => $st,
                     "notif" => $notif,
                     "image" => $image,
-                    "entity_name"   => $data["entity_name"],
+                    "entity_name"   => entityName($data["entity_name"] ?? null),
                 );
                 return view("email.remark.after", $msg1);
             } else {
@@ -335,7 +335,7 @@ class LandExtensionShgbController extends Controller
                     "bgcolor"   => $bgcolor,
                     "valuebt"   => $valuebt,
                     "link"      => "landextensionshgb",
-                    "entity_name"   => $data["entity_name"],
+                    "entity_name"   => entityName($data["entity_name"] ?? null),
                 );
                 return view('email/remark/passcheckwithremark', $data);
             }
@@ -400,7 +400,7 @@ class LandExtensionShgbController extends Controller
             "St" => $st,
             "notif" => $notif,
             "image" => $image,
-            'entity_name'   => $request->entity_name,
+            'entity_name'   => entityName($request->entity_name),
         );
         return view("email.remark.after", $msg1);
     }

@@ -48,7 +48,7 @@ class FeedbackPLController extends Controller
             'bodyEMail'		    => $bodyEMail,
             'user_name'         => $request->user_name,
             'staff_act_send'    => $request->staff_act_send,
-            'entity_name'       => $request->entity_name,
+            'entity_name'       => entityName($request->entity_name),
             'entity_cd'         => $request->entity_cd,
             'action_date'       => Carbon::now('Asia/Jakarta')->format('d-m-Y H:i')
         );
@@ -56,7 +56,7 @@ class FeedbackPLController extends Controller
         try {
             $emailAddress = strtolower($request->email_addr);
             $doc_no = $request->doc_no;
-            $entity_name = $request->entity_name;
+            $entity_name = entityName($request->entity_name);
             $entity_cd = $request->entity_cd;
             $status = $request->status;
             $approve_seq = $request->approve_seq;
@@ -131,7 +131,7 @@ class FeedbackPLController extends Controller
             'bodyEMail'		    => $bodyEMail,
             'user_name'         => $request->user_name,
             'staff_act_send'    => $request->staff_act_send,
-            'entity_name'       => $request->entity_name,
+            'entity_name'       => entityName($request->entity_name),
             'entity_cd'         => $request->entity_cd,
             'action_date'       => Carbon::now('Asia/Jakarta')->format('d-m-Y H:i')
         );
@@ -139,7 +139,7 @@ class FeedbackPLController extends Controller
         try {
             $emailAddress = strtolower($request->email_addr);
             $doc_no = $request->doc_no;
-            $entity_name = $request->entity_name;
+            $entity_name = entityName($request->entity_name);
             $entity_cd = $request->entity_cd;
             $status = $request->status;
             $approve_seq = $request->approve_seq;

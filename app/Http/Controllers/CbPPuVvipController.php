@@ -54,7 +54,7 @@ class CbPPuVvipController extends Controller
             'sender_addr'   => $request->sender_addr,
             'url_file'      => $url_data,
             'file_name'     => $file_data,
-            'entity_name'   => $request->entity_name,
+            'entity_name'   => entityName($request->entity_name),
             'descs'         => $request->descs,
             'user_name'     => $request->user_name,
             'reason'        => $request->reason,
@@ -79,7 +79,7 @@ class CbPPuVvipController extends Controller
             'user_id'       => $request->user_id,
             'supervisor'    => $request->supervisor,
             'email_address' => $request->email_addr,
-            'entity_name'   => $request->entity_name,
+            'entity_name'   => entityName($request->entity_name),
             'type'          => 'V',
             'type_module'   => 'CB',
             'text'          => 'Payment Request'
@@ -96,7 +96,7 @@ class CbPPuVvipController extends Controller
             $entity_cd = $request->entity_cd;
             $doc_no = $request->doc_no;
             $level_no = $request->level_no;
-            $entity_name = $request->entity_name;
+            $entity_name = entityName($request->entity_name);
 
             // Check if email addresses are provided and not empty
             if (!empty($emailAddresses)) {
@@ -207,7 +207,7 @@ class CbPPuVvipController extends Controller
             "status"    => $status,
             "doc_no"    => $data["doc_no"],
             "email"     => $data["email_address"],
-            "entity_name" => $data["entity_name"] ?? "PT BANGUN LAKSANA PERSADA",
+            "entity_name" => entityName($data["entity_name"] ?? null),
             "encrypt"   => $encrypt,
             "name"      => $statusData[0],
             "bgcolor"   => $statusData[1],
@@ -290,7 +290,7 @@ class CbPPuVvipController extends Controller
             "St" => $st,
             "notif" => $notif,
             "image" => $image,
-            "entity_name" => $descs ?? ''
+            "entity_name" => entityName($descs ?? null)
         );
         return view("email.after", $msg1);
     }

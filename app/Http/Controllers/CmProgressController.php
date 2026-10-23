@@ -49,7 +49,7 @@ class CmProgressController extends Controller
 
         $dataArray = array(
             'sender'            => $request->sender,
-            'entity_name'       => $request->entity_name,
+            'entity_name'       => entityName($request->entity_name),
             'descs'             => $request->descs,
             'user_name'         => $request->user_name,
             'progress_no'       => $request->progress_no,
@@ -63,7 +63,7 @@ class CmProgressController extends Controller
             'prev_progress'     => $prev_progress,
             'prev_progress_amt' => $prev_progress_amt,
             'contract_no'       => $request->contract_no,
-            'entity_name'       => $request->entity_name,
+            'entity_name'       => entityName($request->entity_name),
             'module'            => $request->module,
             'approve_list'      => $approve_data,
             'url_file'          => $url_data,
@@ -101,7 +101,7 @@ class CmProgressController extends Controller
             $entity_cd = $request->entity_cd;
             $doc_no = $request->doc_no;
             $level_no = $request->level_no;
-            $entity_name = $request->entity_name;
+            $entity_name = entityName($request->entity_name);
             $request_type = $request->request_type;
 
             // Check if email addresses are provided and not empty

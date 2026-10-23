@@ -34,7 +34,7 @@ class SendCbPpuVvipMail extends Mailable
         $defaultFromName = config('mail.from.name');  // "IFCA SOFTWARE"
 
         // Ambil entity_name dari dataArray
-        $entityName = $dataArray['entity_name'] ?? null;
+        $entityName = entityName($dataArray['entity_name'] ?? null);
 
         // Tentukan final
         $this->fromName = $entityName

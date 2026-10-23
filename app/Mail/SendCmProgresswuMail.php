@@ -24,7 +24,7 @@ class SendCmProgresswuMail extends Mailable
         
         // Default dari config (sudah di override oleh DB sebelumnya)
         $defaultFromName = config('mail.from.name');
-        $entityName = $dataArray['entity_name'] ?? null;
+        $entityName = entityName($dataArray['entity_name'] ?? null);
 
         // Contoh: "IFCA SOFTWARE - ZXY"
         $this->fromName = $entityName

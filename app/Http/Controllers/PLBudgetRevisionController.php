@@ -41,7 +41,7 @@ class PLBudgetRevisionController extends Controller
 
         $dataArray = array(
             'descs'         => $request->descs,
-            'entity_name'   => $request->entity_name,
+            'entity_name'   => entityName($request->entity_name),
             'project_name'  => $request->project_name,
             'trx_type'      => $request->trx_type,
             'amount'        => $amount,
@@ -63,7 +63,7 @@ class PLBudgetRevisionController extends Controller
             'entity_cd'     => $request->entity_cd,
             'project_no'    => $request->project_no,
             'email_address' => $request->email_addr,
-            'entity_name'   => $request->entity_name,
+            'entity_name'   => entityName($request->entity_name),
             'level_no'      => $request->level_no,
             'trx_type'      => $request->trx_type,
             'doc_no'        => $request->doc_no,
@@ -83,7 +83,7 @@ class PLBudgetRevisionController extends Controller
             $doc_no = $request->doc_no;
             $status = $request->status;
             $level_no = $request->level_no;
-            $entity_name = $request->entity_name;
+            $entity_name = entityName($request->entity_name);
 
             // Check if email addresses are provided and not empty
             if (!empty($emailAddresses)) {
@@ -198,7 +198,7 @@ class PLBudgetRevisionController extends Controller
             "name"          => $statusData[0],
             "bgcolor"       => $statusData[1],
             "valuebt"       => $statusData[2],
-            "entity_name"   => $data["entity_name"]
+            "entity_name"   => entityName($data["entity_name"] ?? null)
         ];
 
         return view('email/plrevision/passcheckwithremark', $dataView);
@@ -263,7 +263,7 @@ class PLBudgetRevisionController extends Controller
             "St" => $st,
             "notif" => $notif,
             "image" => $image,
-            "entity_name"   => $data["entity_name"]
+            "entity_name"   => entityName($data["entity_name"] ?? null)
         );
         return view("email.after", $msg1);
     }

@@ -31,13 +31,13 @@
     <tr>
       <td align="center" style="padding-bottom:25px; text-align:center;">
         <img 
-          src="{{ url('public/images/email_header.png') }}" 
+          src="{{ getEntityLogo($data['entity_name'] ?? null) }}" 
           alt="logo" 
           height="56" 
           style="display:inline-block; border:0; outline:none; text-decoration:none;">
         <p 
           style="font-size:16px; color:#026735; margin:10px 0 0; text-align:center;">
-          {{ $data['entity_name'] }}
+          {{ entityName($data['entity_name'] ?? null) }}
         </p>
       </td>
     </tr>

@@ -40,10 +40,10 @@ class CmDoneController extends Controller
 
         $dataArray = array(
             'sender'            => $request->sender,
-            'entity_name'       => $request->entity_name,
+            'entity_name'       => entityName($request->entity_name),
             'descs'             => $request->descs,
             'user_name'         => $request->user_name,
-            'entity_name'       => $request->entity_name,
+            'entity_name'       => entityName($request->entity_name),
             'approve_seq'       => $request->approve_seq,
             'module'            => $request->module,
             'approve_list'      => $approve_data,
@@ -66,7 +66,7 @@ class CmDoneController extends Controller
             'usergroup'     => $request->usergroup,
             'user_id'       => $request->user_id,
             'supervisor'    => $request->supervisor,
-            'entity_name'       => $request->entity_name,
+            'entity_name'       => entityName($request->entity_name),
             'type'          => 'B',
             'type_module'   => 'CM',
             'text'          => 'Contract Progress'
@@ -83,7 +83,7 @@ class CmDoneController extends Controller
             $entity_cd = $request->entity_cd;
             $doc_no = $request->doc_no;
             $level_no = $request->level_no;
-            $entity_name = $request->entity_name;
+            $entity_name = entityName($request->entity_name);
 
             // Check if email addresses are provided and not empty
             if (!empty($emailAddresses)) {
@@ -194,7 +194,7 @@ class CmDoneController extends Controller
         $dataView = [
             "status"    => $status,
             "encrypt"   => $encrypt,
-            "entity_name" => $data["entity_name"] ?? "PT BANGUN LAKSANA PERSADA",
+            "entity_name" => entityName($data["entity_name"] ?? null),
             "name"      => $statusData[0],
             "bgcolor"   => $statusData[1],
             "valuebt"   => $statusData[2]

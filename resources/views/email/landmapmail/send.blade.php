@@ -60,11 +60,11 @@
           <!-- Header -->
           <tr>
             <td align="center" style="padding-bottom:25px;">
-              <img src="{{ url('public/images/email_header.png') }}" 
+              <img src="{{ getEntityLogo($dataArray['entity_name'] ?? null) }}" 
                                         alt="logo" 
                                         height="56" 
                                         style="display:inline-block; border:0; outline:none; text-decoration:none;">
-              <p style="font-size:16px; color:#026735; margin:10px 0 0;">{{ $dataArray['entity_name'] }}</p>
+              <p style="font-size:16px; color:#026735; margin:10px 0 0;">{{ entityName($dataArray['entity_name'] ?? null) }}</p>
             </td>
           </tr>
 

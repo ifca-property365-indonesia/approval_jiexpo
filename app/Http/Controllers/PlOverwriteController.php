@@ -43,7 +43,7 @@ class PlOverwriteController extends Controller
                 'user_name'             => $request->user_name,
                 'sender_addr'           => $request->sender_addr,
                 'sender_name'           => $request->sender_name,
-                'entity_name'           => $request->entity_name,
+                'entity_name'           => entityName($request->entity_name),
                 'descs'                 => $request->descs,
                 'approve_list'          => $approve_data,
                 'amount'                => number_format((float)$request->amount, 2, '.', ','),
@@ -62,7 +62,7 @@ class PlOverwriteController extends Controller
                 'level_no'      => $request->level_no,
                 'approve_seq'   => $request->approve_seq,
                 'doc_no'        => $request->doc_no,
-                'entity_name'   => $request->entity_name,
+                'entity_name'   => entityName($request->entity_name),
                 'type'          => 'A',
                 'type_module'   => 'PL',
                 'text'          => 'Overwrite Actual Inventory',
@@ -193,7 +193,7 @@ class PlOverwriteController extends Controller
                 "St" => $st,
                 "notif" => $notif,
                 "image" => $image,
-                "entity_name"   => $data["entity_name"],
+                "entity_name"   => entityName($data["entity_name"] ?? null),
             );
             return view("email.remark.after", $msg1);
         } else {
@@ -224,7 +224,7 @@ class PlOverwriteController extends Controller
                     "St" => $st,
                     "notif" => $notif,
                     "image" => $image,
-                    "entity_name"   => $data["entity_name"],
+                    "entity_name"   => entityName($data["entity_name"] ?? null),
                 );
                 return view("email.remark.after", $msg1);
             } else {
@@ -253,7 +253,7 @@ class PlOverwriteController extends Controller
                     "bgcolor"   => $bgcolor,
                     "valuebt"   => $valuebt,
                     "link"      => "landsplitshgb",
-                    "entity_name"   => $data["entity_name"],
+                    "entity_name"   => entityName($data["entity_name"] ?? null),
                 );
                 return view('email/remark/passcheckwithremark', $data);
             }
@@ -319,7 +319,7 @@ class PlOverwriteController extends Controller
             "St" => $st,
             "notif" => $notif,
             "image" => $image,
-            'entity_name'   => $request->entity_name,
+            'entity_name'   => entityName($request->entity_name),
         );
         return view("email.remark.after", $msg1);
     }

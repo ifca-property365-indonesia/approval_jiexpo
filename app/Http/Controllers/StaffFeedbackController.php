@@ -76,7 +76,7 @@ class StaffFeedbackController extends Controller
             'bodyEMail'		    => $bodyEMail,
             'user_name'         => $request->user_name,
             'staff_act_send'    => $request->staff_act_send,
-            'entity_name'       => $request->entity_name,
+            'entity_name'       => entityName($request->entity_name),
             'entity_cd'         => $request->entity_cd,
             'url_file'          => $url_data,
             'file_name'         => $file_data,
@@ -85,14 +85,14 @@ class StaffFeedbackController extends Controller
         );
         $emailAddresses = strtolower($request->email_addr);
         $doc_no = $request->doc_no;
-        $entity_name = $request->entity_name;
+        $entity_name = entityName($request->entity_name);
         $entity_cd = $request->entity_cd;
         $status = $request->status;
         $approve_seq = $request->approve_seq;
         try {
             $emailAddresses = strtolower($request->email_addr);
             $doc_no = $request->doc_no;
-            $entity_name = $request->entity_name;
+            $entity_name = entityName($request->entity_name);
             $entity_cd = $request->entity_cd;
             $status = $request->status;
             $approve_seq = $request->approve_seq;
@@ -193,7 +193,7 @@ class StaffFeedbackController extends Controller
             'bodyEMail'		    => $bodyEMail,
             'user_name'         => $request->user_name,
             'staff_act_send'    => $request->staff_act_send,
-            'entity_name'       => $request->entity_name,
+            'entity_name'       => entityName($request->entity_name),
             'entity_cd'         => $request->entity_cd,
             'url_file'          => $url_data,
             'file_name'         => $file_data,
@@ -201,14 +201,14 @@ class StaffFeedbackController extends Controller
         );
         $emailAddresses = strtolower($request->email_addr);
         $doc_no = $request->doc_no;
-        $entity_name = $request->entity_name;
+        $entity_name = entityName($request->entity_name);
         $entity_cd = $request->entity_cd;
         $status = $request->status;
         $approve_seq = $request->approve_seq;
         try {
             $emailAddresses = strtolower($request->email_addr);
             $doc_no = $request->doc_no;
-            $entity_name = $request->entity_name;
+            $entity_name = entityName($request->entity_name);
             $entity_cd = $request->entity_cd;
             $status = $request->status;
             $approve_seq = $request->approve_seq;
@@ -310,7 +310,7 @@ class StaffFeedbackController extends Controller
             'bodyEMail'		    => $bodyEMail,
             'user_name'         => $request->user_name,
             'staff_act_send'    => $request->staff_act_send,
-            'entity_name'       => $request->entity_name,
+            'entity_name'       => entityName($request->entity_name),
             'entity_cd'         => $request->entity_cd,
             'url_file'          => $url_data,
             'file_name'         => $file_data,
@@ -318,14 +318,14 @@ class StaffFeedbackController extends Controller
         );
         $emailAddresses = strtolower($request->email_addr);
         $doc_no = $request->doc_no;
-        $entity_name = $request->entity_name;
+        $entity_name = entityName($request->entity_name);
         $entity_cd = $request->entity_cd;
         $status = $request->status;
         $approve_seq = $request->approve_seq;
         try {
             $emailAddresses = strtolower($request->email_addr);
             $doc_no = $request->doc_no;
-            $entity_name = $request->entity_name;
+            $entity_name = entityName($request->entity_name);
             $entity_cd = $request->entity_cd;
             $status = $request->status;
             $approve_seq = $request->approve_seq;
@@ -429,7 +429,7 @@ class StaffFeedbackController extends Controller
             'bodyEMail'		    => $bodyEMail,
             'user_name'         => $request->user_name,
             'staff_act_send'    => $request->staff_act_send,
-            'entity_name'       => $request->entity_name,
+            'entity_name'       => entityName($request->entity_name),
             'entity_cd'         => $request->entity_cd,
             'url_file'          => $url_data,
             'file_name'         => $file_data,
@@ -437,14 +437,14 @@ class StaffFeedbackController extends Controller
         );
         $emailAddresses = strtolower($request->email_addr);
         $doc_no = $request->doc_no;
-        $entity_name = $request->entity_name;
+        $entity_name = entityName($request->entity_name);
         $entity_cd = $request->entity_cd;
         $status = $request->status;
         $approve_seq = $request->approve_seq;
         try {
             $emailAddresses = strtolower($request->email_addr);
             $doc_no = $request->doc_no;
-            $entity_name = $request->entity_name;
+            $entity_name = entityName($request->entity_name);
             $entity_cd = $request->entity_cd;
             $status = $request->status;
             $approve_seq = $request->approve_seq;

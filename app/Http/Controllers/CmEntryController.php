@@ -43,7 +43,7 @@ class CmEntryController extends Controller
         $dataArray = array(
             'sender'        => $request->sender,
             'sender_addr'   => $request->sender_addr,
-            'entity_name'   => $request->entity_name,
+            'entity_name'   => entityName($request->entity_name),
             'descs'         => $request->descs,
             'doc_link'      => $request->doc_link,
             'works_descs'   => $request->works_descs,
@@ -89,7 +89,7 @@ class CmEntryController extends Controller
             $entity_cd = $request->entity_cd;
             $doc_no = $request->doc_no;
             $level_no = $request->level_no;
-            $entity_name = $request->entity_name;
+            $entity_name = entityName($request->entity_name);
 
 
             // Check if email addresses are provided and not empty

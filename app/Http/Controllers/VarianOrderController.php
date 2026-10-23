@@ -43,7 +43,7 @@ class VarianOrderController extends Controller
 
         $dataArray = array(
             'sender'            => $request->sender,
-            'entity_name'       => $request->entity_name,
+            'entity_name'       => entityName($request->entity_name),
             'descs'             => $request->descs,
             'user_name'         => $request->user_name,
             'approve_seq'       => $request->approve_seq,
@@ -89,7 +89,7 @@ class VarianOrderController extends Controller
             $doc_no = $request->doc_no;
             $status = $request->status;
             $level_no = $request->level_no;
-            $entity_name = $request->entity_name;
+            $entity_name = entityName($request->entity_name);
 
             // Check if email addresses are provided and not empty
             if (!empty($emailAddresses)) {

@@ -60,11 +60,11 @@
           <!-- Header -->
           <tr>
             <td align="center" style="padding-bottom:25px;">
-              <img src="{{ url('public/images/email_header.png') }}" 
+              <img src="{{ getEntityLogo($dataArray['entity_name'] ?? null) }}" 
                   alt="logo" 
                   height="56" 
                   style="display:inline-block; border:0; outline:none; text-decoration:none;">
-              <p style="font-size:16px; color:#026735; margin:10px 0 0;">{{ $dataArray['entity_name'] }}</p>
+              <p style="font-size:16px; color:#026735; margin:10px 0 0;">{{ entityName($dataArray['entity_name'] ?? null) }}</p>
             </td>
           </tr>
 
@@ -77,7 +77,7 @@
               <!-- Detail Table -->
               <table role="presentation" cellpadding="4" cellspacing="0" border="0" width="100%" style="font-size:14px; color:#000000;">
                 <tr><td width="40%">Nomor Dokumen</td><td width="2%">:</td><td>{{ $dataArray['doc_no'] }}</td></tr>
-                <tr><td>Nama PT</td><td>:</td><td>{{ $dataArray['entity_name'] }}</td></tr>
+                <tr><td>Nama PT</td><td>:</td><td>{{ entityName($dataArray['entity_name'] ?? null) }}</td></tr>
                 <tr><td>No. Alas Hak</td><td>:</td><td>{{ $dataArray['no_alas_hak'] }}</td></tr>
                 <tr><td>Nama Alas Hak</td><td>:</td><td>{{ $dataArray['name_alas_hak'] }}</td></tr>
                 <tr><td>Luas Alas Hak</td><td>:</td><td>{{ $dataArray['luas_alas_hak'] }}</td></tr>

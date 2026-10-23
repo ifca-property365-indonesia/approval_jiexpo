@@ -52,7 +52,7 @@ class PoRequestController extends Controller
 
         $dataArray = array(
             'sender'        => $data["sender"],
-            'entity_name'   => $data["entity_name"],
+            'entity_name'   => entityName($data["entity_name"] ?? null),
             'descs'         => $data["descs"],
             'email_address' => $data["email_addr"],
             'sender_addr'   => $data["sender_addr"],
@@ -94,7 +94,7 @@ class PoRequestController extends Controller
             $entityCd = $data["entity_cd"];
             $docNo = $data["doc_no"];
             $levelNo = $data["level_no"];
-            $entity_name = $data["entity_name"];
+            $entity_name = entityName($data["entity_name"] ?? null);
 
             if (!empty($emailAddress)) {
                 // Check if the email has been sent before for this document

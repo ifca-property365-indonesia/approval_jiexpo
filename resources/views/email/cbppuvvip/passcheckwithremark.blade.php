@@ -32,12 +32,12 @@
                         <tbody>
                             <tr>
                                 <td style="text-align: center; padding-bottom:25px">
-                                    <img src="{{ getEntityLogo($entity_name) }}" 
+                                    <img src="{{ getEntityLogo($entity_name ?? null) }}" 
                                         alt="logo" 
                                         height="56" 
                                         style="display:inline-block; border:0; outline:none; text-decoration:none;">
                                     <p style="font-size: 16px; color: #026735; padding-top: 0px;">
-                                        {{ $entity_name ?? "PT BANGUN LAKSANA PERSADA"}}
+                                        {{ entityName($entity_name ?? null) }}
                                     </p>
                                 </td>
                             </tr>

@@ -30,7 +30,7 @@
                             <tr>
                                 <td align="center" style="padding-bottom:25px; text-align:center;">
                                     @php
-                                        $entityName = $entity_name ?? 'PT BANGUN LAKSANA PERSADA';
+                                        $entityName = entityName($entity_name ?? null);
                                     @endphp
 
                                     <img src="{{ getEntityLogo($entityName) }}" 

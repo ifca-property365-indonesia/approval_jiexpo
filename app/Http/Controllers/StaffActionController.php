@@ -57,20 +57,20 @@ class StaffActionController extends Controller
             'bodyEMail'		    => $bodyEMail,
             'user_name'         => $request->user_name,
             'staff_act_send'    => $request->staff_act_send,
-            'entity_name'       => $request->entity_name,
+            'entity_name'       => entityName($request->entity_name),
             'entity_cd'         => $request->entity_cd,
             'action_date'       => Carbon::now('Asia/Jakarta')->format('d-m-Y H:i')
         );
         $emailAddresses = strtolower($request->email_addr);
         $doc_no = $request->doc_no;
-        $entity_name = $request->entity_name;
+        $entity_name = entityName($request->entity_name);
         $entity_cd = $request->entity_cd;
         $status = $request->status;
         $approve_seq = $request->approve_seq;
         try {
             $emailAddress = strtolower($request->email_addr);
             $doc_no = $request->doc_no;
-            $entity_name = $request->entity_name;
+            $entity_name = entityName($request->entity_name);
             $entity_cd = $request->entity_cd;
             $status = $request->status;
             $approve_seq = $request->approve_seq;
@@ -175,7 +175,7 @@ class StaffActionController extends Controller
             'bodyEMail'         => $bodyEMail,
             'user_name'         => $request->user_name,
             'staff_act_send'    => $request->staff_act_send,
-            'entity_name'       => $request->entity_name,
+            'entity_name'       => entityName($request->entity_name),
             'status'            => $request->status,
             'entity_cd'         => $request->entity_cd,
             'url_file'          => $url_data,
@@ -187,7 +187,7 @@ class StaffActionController extends Controller
         $emailAddresses = strtolower($request->email_addr);
         $email_cc = $request->email_cc;
         $entity_cd = $request->entity_cd;
-        $entity_name = $request->entity_name;
+        $entity_name = entityName($request->entity_name);
         $doc_no = $request->doc_no;
         $status = $request->status;
         $approve_seq = $request->approve_seq;
@@ -195,7 +195,7 @@ class StaffActionController extends Controller
         try {
             $emailAddresses = strtolower($request->email_addr);
             $entity_cd = $request->entity_cd;
-            $entity_name = $request->entity_name;
+            $entity_name = entityName($request->entity_name);
             $doc_no = $request->doc_no;
             $status = $request->status;
             $approve_seq = $request->approve_seq;
@@ -342,7 +342,7 @@ class StaffActionController extends Controller
             'bodyEMail'		    => $bodyEMail,
             'user_name'         => $request->user_name,
             'staff_act_send'    => $request->staff_act_send,
-            'entity_name'       => $request->entity_name,
+            'entity_name'       => entityName($request->entity_name),
             'entity_cd'         => $request->entity_cd,
             'url_file'          => $url_data,
             'file_name'         => $file_data,
@@ -350,14 +350,14 @@ class StaffActionController extends Controller
         );
         $emailAddresses = strtolower($request->email_addr);
         $doc_no = $request->doc_no;
-        $entity_name = $request->entity_name;
+        $entity_name = entityName($request->entity_name);
         $entity_cd = $request->entity_cd;
         $status = $request->status;
         $approve_seq = $request->approve_seq;
         try {
             $emailAddress = strtolower($request->email_addr);
             $doc_no = $request->doc_no;
-            $entity_name = $request->entity_name;
+            $entity_name = entityName($request->entity_name);
             $entity_cd = $request->entity_cd;
             $status = $request->status;
             $approve_seq = $request->approve_seq;
@@ -481,7 +481,7 @@ class StaffActionController extends Controller
             'user_name'       => $request->user_name,
             'staff_act_send'  => $request->staff_act_send,
             'descs_send'      => $request->descs_send,
-            'entity_name'     => $request->entity_name,
+            'entity_name'     => entityName($request->entity_name),
             'status'          => $request->status,
             'entity_cd'       => $request->entity_cd,
             'attachments'     => $attachments,
@@ -653,7 +653,7 @@ class StaffActionController extends Controller
                 'user_name'         => $request->user_name,
                 'sender_addr'       => $request->sender_addr,
                 'sender_name'       => $request->sender_name,
-                'entity_name'       => $request->entity_name,
+                'entity_name'       => entityName($request->entity_name),
                 'attachments'       => $attachments,
                 'descs'             => $request->descs,
                 'approve_list'      => $approve_data,

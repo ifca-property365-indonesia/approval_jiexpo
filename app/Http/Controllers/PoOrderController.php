@@ -82,7 +82,7 @@ class PoOrderController extends Controller
             'sender_addr'   => $data["sender_addr"],
             'url_file'      => $url_data,
             'file_name'     => $file_data,
-            'entity_name'   => $data["entity_name"],
+            'entity_name'   => entityName($data["entity_name"] ?? null),
             'email_address' => $data["email_addr"],
             'descs'         => $data["descs"],
             'user_name'     => $data["user_name"],
@@ -126,7 +126,7 @@ class PoOrderController extends Controller
             $entityCd = $data["entity_cd"];
             $docNo = $data["doc_no"];
             $levelNo = $data["level_no"];
-            $entity_name = $data["entity_name"];
+            $entity_name = entityName($data["entity_name"] ?? null);
 
             if (!empty($emailAddress)) {
                 // Check if the email has been sent before for this document

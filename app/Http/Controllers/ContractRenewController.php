@@ -28,12 +28,12 @@ class ContractRenewController extends Controller
 
         $dataArray = array(
             'sender'            => $request->sender,
-            'entity_name'       => $request->entity_name,
+            'entity_name'       => entityName($request->entity_name),
             'descs'             => $request->descs,
             'user_name'         => $request->user_name,
             'currency_cd'       => $request->currency_cd,
             'contract_sum'      => $contract_sum,
-            'entity_name'       => $request->entity_name,
+            'entity_name'       => entityName($request->entity_name),
             'approve_seq'       => $request->approve_seq,
             'approve_list'      => $approve_data,
             'clarify_user'      => $request->clarify_user,
@@ -71,7 +71,7 @@ class ContractRenewController extends Controller
             $ref_no = $request->ref_no;
             $level_no = $request->level_no;
             $doc_no = $request->doc_no;
-            $entity_name = $request->entity_name;
+            $entity_name = entityName($request->entity_name);
 
             // Check if email addresses are provided and not empty
             if (!empty($emailAddresses)) {

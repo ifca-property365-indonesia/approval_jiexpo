@@ -49,7 +49,7 @@ class CbFupdController extends Controller
             'module'        => "CbFupd",
             'sender'        => $data["sender"],
             'sender_addr'   => $data["sender_addr"],
-            'entity_name'   => $data["entity_name"],
+            'entity_name'   => entityName($data["entity_name"] ?? null),
             'band_hd_descs' => $band_hd_descs,
             'band_hd_no'    => $data["band_hd_no"],
             'dt_amount'     => $dt_amount,
@@ -75,7 +75,7 @@ class CbFupdController extends Controller
             'usergroup'     => $data["usergroup"],
             'user_id'       => $data["user_id"],
             'supervisor'    => $data["supervisor"],
-            'entity_name'   => $data["entity_name"],
+            'entity_name'   => entityName($data["entity_name"] ?? null),
             'type'          => 'E',
             'type_module'   => 'CB',
             'text'          => 'Propose Transfer to Bank'
@@ -208,7 +208,7 @@ class CbFupdController extends Controller
             "St" => $st,
             "notif" => $notif,
             "image" => $image,
-            "entity_name" => $descs ?? ''
+            "entity_name" => entityName($descs ?? null)
         );
         return view("email.after", $msg1);
         Artisan::call('config:cache');

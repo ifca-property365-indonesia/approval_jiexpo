@@ -58,7 +58,7 @@ class PurchaseSelectionController extends Controller
             'supplier_name' => $request->supplier_name,
             'sender'        => $request->sender,
             'sender_addr'   => $request->sender_addr,
-            'entity_name'   => $request->entity_name,
+            'entity_name'   => entityName($request->entity_name),
             'descs'         => $request->descs,
             'user_name'     => $request->user_name,
             'url_file'      => $url_data,
@@ -96,7 +96,7 @@ class PurchaseSelectionController extends Controller
             $entityCd = $request->entity_cd;
             $docNo = $request->doc_no;
             $levelNo = $request->level_no;
-            $entity_name = $request->entity_name;
+            $entity_name = entityName($request->entity_name);
 
             // Check if email address is provided and not empty
             if (!empty($emailAddress)) {
