@@ -9,7 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta http-equiv="Content-Type" content="application/pdf">
     <meta name="x-apple-disable-message-reformatting">
-    <title>IFCA - Bangun Laksana Persada</title>
+    <title>IFCA - JIExpo</title>
     <link rel="shortcut icon" type="image/x-icon" href="{{ url('public/images/email_header.ico') }}">
     
     <style>
